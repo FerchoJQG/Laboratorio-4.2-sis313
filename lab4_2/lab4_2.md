@@ -130,7 +130,6 @@ El servidor DNS actúa como el nodo central. Se configuró la interfaz `enp0s3` 
 > ![Captura de pantalla: Edición de Netplan en la VM DNS y aplicación de cambios](imagenes/dns_netplan.png)
 > ![Captura de pantalla: Edición de Netplan en la VM DNS y aplicación de cambios](imagenes/dns_netplan1.png)
 > ![Captura de pantalla: Edición de Netplan en la VM DNS y aplicación de cambios](imagenes/dns_netplan2.png)
-
 > ![Captura de pantalla: Edición de Netplan en la VM DNS y aplicación de cambios](imagen/imagen1.png)
 > ![Captura de pantalla: Edición de Netplan en la VM DNS y aplicación de cambios](imagen/imagen3.png)
 
@@ -152,7 +151,6 @@ Se asignó la IP `.4`. Al igual que en la VM Web, el servidor DNS se configuró 
 > ![Captura de pantalla: Configuración de red estática en la VM Cliente](imagenes/client_netplan.png)
 > ![Captura de pantalla: Configuración de red estática en la VM Cliente](imagenes/client_netplan1.png)
 > ![Captura de pantalla: Configuración de red estática en la VM Cliente](imagenes/client_netplan2.png)
-
 > ![Captura de pantalla: Configuración de red estática en la VM Cliente](imagen/imagen7.png)
 > ![Captura de pantalla: Configuración de red estática en la VM Cliente](imagen/imagen8.png)
 
@@ -171,7 +169,6 @@ Por defecto, Linux bloquea el paso de paquetes entre interfaces por seguridad. S
 > ![Captura de pantalla: Edición de sysctl.conf y ejecución de sudo sysctl -p](imagenes/sysctl_forward.png)
 > ![Captura de pantalla: Edición de sysctl.conf y ejecución de sudo sysctl -p](imagenes/sysctl_forward1.png)
 > ![Captura de pantalla: Edición de sysctl.conf y ejecución de sudo sysctl -p](imagenes/sysctl_forward2.png)
-
 > ![Captura de pantalla: Edición de sysctl.conf y ejecución de sudo sysctl -p](imagen/imagen9.png)
 > ![Captura de pantalla:  Edición de sysctl.conf y ejecución de sudo sysctl -p](imagen/imagen10.png)
 > ![Captura de pantalla:  Edición de sysctl.conf y ejecución de sudo sysctl -p](imagen/imagen11.png)
@@ -186,7 +183,6 @@ Se aplicó una regla de **Enmascaramiento (MASQUERADE)**. Esto permite que las m
     * `-j MASQUERADE`: Traduce las IPs internas a la IP de la interfaz de salida.
 
 > ![Captura de pantalla: Aplicación de la regla de NAT en IPTables](imagenes/iptables_nat.png)
-
 > ![Captura de pantalla: Edición de Netplan en la VM DNS y aplicación de cambios](imagen/imagen11_1.png)
 #### C. Persistencia de la Configuración
 Las reglas de `iptables` se borran al reiniciar. Para evitar esto, se instaló un servicio que las carga automáticamente al arrancar el sistema.
@@ -196,7 +192,6 @@ Las reglas de `iptables` se borran al reiniciar. Para evitar esto, se instaló u
 
 > ![Captura de pantalla: Instalación y guardado persistente de las reglas de red](imagenes/iptables_save.png)
 > ![Captura de pantalla: Instalación y guardado persistente de las reglas de red](imagenes/iptables_save1.png)
-
 > ![Captura de pantalla: Instalación y guardado persistente de las reglas de red](imagen/imagen11_2.png)
 > ![Captura de pantalla: Instalación y guardado persistente de las reglas de red](imagen/imagen12.png)
 ---
@@ -213,7 +208,6 @@ Se procedió a la instalación del paquete **BIND9**, junto con utilidades de di
     * `bind9utils`: Herramientas de verificación como `named-checkconf`.
 
 > ![Captura de la terminal instalando los paquetes de BIND9 y dependencias](imagenes/dns_install.png)
-
 > ![Captura de la terminal instalando los paquetes de BIND9 y dependencias](imagen/imagen13.png)
 ---
 
@@ -224,7 +218,6 @@ Se configuró el archivo `named.conf.local` para informar al servidor que es la 
 
 > ![Captura editando named.conf.local con el bloque de la zona lab42.local](imagenes/dns_conf_local.png)
 > ![Captura editando named.conf.local con el bloque de la zona lab42.local](imagenes/dns_conf_local1.png)
-
 > ![Captura editando named.conf.local con el bloque de la zona lab42.local](imagen/imagen14.png)
 > ![Captura editando named.conf.local con el bloque de la zona lab42.local](imagen/imagen15.png)
 
@@ -243,7 +236,6 @@ Se creó el archivo de base de datos de la zona a partir de una plantilla. Este 
 
 > ![Captura del contenido del archivo db.lab42.local con los registros A y CNAME](imagenes/dns_db_zone.png)
 > ![Captura del contenido del archivo db.lab42.local con los registros A y CNAME](imagenes/dns_db_zone1.png)
-
 > ![Captura del contenido del archivo db.lab42.local con los registros A y CNAME](imagen/imagen16.png)
 > ![Captura del contenido del archivo db.lab42.local con los registros A y CNAME](imagen/imagen17.png)
 ---
@@ -256,7 +248,6 @@ Antes de activar la configuración, se utilizaron herramientas de validación pa
 
 > ![Captura de los comandos de verificación mostrando el mensaje OK](imagenes/dns_check.png)
 > ![Captura de los comandos de verificación mostrando el mensaje OK](imagenes/dns_check1.png)
-
 > ![Captura de los comandos de verificación mostrando el mensaje OK](imagen/imagen18_1.png)
 
 
@@ -269,7 +260,6 @@ Para aplicar los cambios, se reinició el demonio y se verificó que el servidor
 > ![Captura del estado del servicio Bind9 y el puerto 53 abierto](imagenes/dns_status_netstat.png)
 > ![Captura del estado del servicio Bind9 y el puerto 53 abierto](imagenes/dns_status_netstat1.png)
 > ![Captura del estado del servicio Bind9 y el puerto 53 abierto](imagenes/dns_status_netstat2.png)
-
 > ![Captura del estado del servicio Bind9 y el puerto 53 abierto](imagen/imagen18.png)
 > ![Captura del estado del servicio Bind9 y el puerto 53 abierto](imagen/imagen19.png)
 
@@ -288,7 +278,6 @@ Se instaló el servidor web y se habilitó para que el servicio se inicie autom�
 > ![Captura de la terminal instalando Nginx y verificando su inicio automático](imagenes/web_install_nginx.png)
 > ![Captura de la terminal instalando Nginx y verificando su inicio automático](imagenes/web_install1_nginx.png)
 > ![Captura de la terminal instalando Nginx y verificando su inicio automático](imagenes/web_install2_nginx.png)
-
 > ![Captura de la terminal instalando Nginx y verificando su inicio automático](imagen/imagen20.png)
 > ![Captura de la terminal instalando Nginx y verificando su inicio automático](imagen/imagen21.png)
 > ![Captura de la terminal instalando Nginx y verificando su inicio automático](imagen/imagen22.png)
@@ -306,8 +295,6 @@ Para que el servidor responda correctamente a las peticiones del dominio `www.la
 
 > ![Captura del archivo de configuración del Virtual Host para lab42.local](imagenes/web_vhost_config.png)
 > ![Captura del archivo de configuración del Virtual Host para lab42.local](imagenes/web_vhost_config1.png)
-
-
 > ![Captura del archivo de configuración del Virtual Host para lab42.local](imagen/imagen23.png)
 > ![Captura del archivo de configuración del Virtual Host para lab42.local](imagen/imagen24.png)
 
@@ -322,7 +309,6 @@ Se procedió a crear la estructura de directorios y a vincular la configuración
 > ![Captura de activacion del sitio y crear contenido](imagenes/web_content_creation2.png)
 > ![Captura de activacion del sitio y crear contenido](imagenes/web_content_creation.png)
 > ![Captura de activacion del sitio y crear contenido](imagenes/web_content_creation1.png)
-
 > ![Captura de activacion del sitio y crear contenido](imagen/imagen25.png)
 
 **Creación del index.html:**
@@ -330,7 +316,6 @@ Se generó una página de prueba personalizada mediante comandos de redirección
 
 > ![Captura creando el directorio raíz y el archivo index.html personalizado](imagenes/sudo_bash_c_echo.png)
 > ![Captura creando el directorio raíz y el archivo index.html personalizado](imagenes/sudo_bash_c_echo.png)
-
 > ![Captura creando el directorio raíz y el archivo index.html personalizado](imagen/imagen25_1.png)
 
 ---
@@ -343,7 +328,6 @@ Antes de aplicar cambios en producción, se validó que no existieran errores en
 
 > ![Captura de la ejecución de nginx -t con resultado exitoso y reinicio del servicio](imagenes/web_nginx_test.png)
 > ![Captura de la ejecución de nginx -t con resultado exitoso y reinicio del servicio](imagenes/web_nginx_test1.png)
-
 > ![Captura de la ejecución de nginx -t con resultado exitoso y reinicio del servicio](imagen/imagen25_2.png)
 
 ---
@@ -524,7 +508,6 @@ Se realizaron pruebas cruzadas para verificar que ambos tipos de resolución (no
 > ![Captura de la terminal del anfitrión mostrando el éxito de nslookup y la resolución inversa (PTR)](imagenes/grupo_test_dns_final.png)
 > ![Captura de la terminal del anfitrión mostrando el éxito de nslookup y la resolución inversa (PTR)](imagenes/grupo_test_dns_final1.png)
 > ![Captura de la terminal del anfitrión mostrando el éxito de nslookup y la resolución inversa (PTR)](imagenes/grupo_test_dns_final2.png)
-
 > ![Captura de la terminal del anfitrión mostrando el éxito de nslookup y la resolución inversa (PTR)](imagen/imagen37.png)
 
 ---
